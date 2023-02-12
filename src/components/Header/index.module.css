@@ -2,15 +2,16 @@
     width: 100%;
     background-color: #fed700;
     padding: 12px 0;
+
 }
 
-
 .wrapper {
-	display: flex;
+	display: block;
 	align-items: center;
 	justify-content: space-between;
 	gap: 80px;
 }
+
 
 @media (max-width: 700px) {
 	.wrapper {
@@ -18,4 +19,24 @@
 		align-items: stretch;
 		gap: 20px;
 	}
+}
+
+.container {
+	max-width: 1024px;
+	padding-left: 16px;
+	padding-right: 16px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.container2 {
+	max-width: 1024px;
+	padding-left: 16px;
+	padding-right: 16px;
+	width: 95%;
+	margin: 0 auto;
+	display: block;
+	align-items: center;
+	justify-content: space-between;
+	gap: 80px;
 }

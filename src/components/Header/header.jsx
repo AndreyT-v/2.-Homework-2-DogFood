@@ -1,43 +1,34 @@
 import s from './index.module.css';
 import cn from 'classnames';
-import { useState } from 'react';
 
 
-function Header({user, onUpdateUser, children}) {
+function Header({children, user, onUpdateUser}) {
 
-  const [name, setName] = useState(user.name);
-  const [about, setAbout] = useState(user.about);
-
-  const handleClickButtonEdit = (e) => {
-		e.preventDefault();
-		onUpdateUser({name: name, about: about})
-	}
+  const handleClickButtonEdit = (e)=> {
+    e.preventDefault();
+    onUpdateUser({name: 'Андрей', about: 'Студент'})
+  }
 
   return (
     <header className={cn(s.header,'cover')}>
+
+   <  div className="container2">
+
+        {user?.email && <span>{user?.email}</span>}
+        {user?.name && <span>{user?.name}</span>}
+
+        <button className='btn' onClick={handleClickButtonEdit}>Изменить</button>
+      </div>
+
       <div className="container">
+
         <div className={s.wrapper}>
           {children}
         </div>
-      </div>
-
-      <input type="text" 
-             value={user.name} 
-             onChange={(e) => {
-                setName(e.target.value);
-              }}/>
-
-      <input type="text" 
-             value={user.about} 
-             onChange={(e) => {
-              setAbout(e.target.value);
-              }}/>
-
-      <button onClick={handleClickButtonEdit} className="btn btn_type_secondary">
-        Изменить
-      </button>
+     </div>
     </header>
   )
 }
 
 export default Header;
+
